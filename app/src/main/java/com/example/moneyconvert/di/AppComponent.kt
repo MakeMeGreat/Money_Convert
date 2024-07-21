@@ -1,5 +1,6 @@
 package com.example.moneyconvert.di
 
+import com.example.moneyconvert.presentation.ui.InputFragment
 import dagger.Component
 import javax.inject.Singleton
 
@@ -8,4 +9,5 @@ import javax.inject.Singleton
     modules = [RetrofitModule::class]
 )
 interface AppComponent {
+    fun inject(inputFragment: InputFragment)
 }

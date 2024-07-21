@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">Money Convert</string>
+    <string name="exchange">exchange</string>
+    <string name="amount">Amount</string>
+
+    <string-array name="base_code_array">
+        <item>USD</item>
+        <item>EUR</item>
+        <item>JPY</item>
+        <item>GBP</item>
+        <item>RUB</item>
+    </string-array>
+
+    <string-array name="target_code_array">
+        <item>EUR</item>
+        <item>USD</item>
+        <item>JPY</item>
+        <item>GBP</item>
+        <item>RUB</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
