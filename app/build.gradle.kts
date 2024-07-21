@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("org.jetbrains.kotlin.kapt")
 }
 
 android {
@@ -45,4 +46,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    //dagger
+    implementation(libs.dagger)
+    kapt(libs.dagger.compiler)
+    // Retrofit with Moshi Converter
+    implementation(libs.moshi.kotlin)
+    implementation(libs.converter.moshi)
 }
