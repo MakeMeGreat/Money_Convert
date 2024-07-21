@@ -6,13 +6,12 @@ import javax.inject.Inject
 
 class DataToDomainMapper @Inject constructor() {
 
-    fun mapResponseToDomainModel(exchangeResponse: ExchangeResponse): ExchangeResponseDomainModel {
-        return ExchangeResponseDomainModel(
+    fun mapResponseToDomainModel(exchangeResponse: ExchangeResponse) =
+        ExchangeResponseDomainModel(
             result = exchangeResponse.result,
             baseCode = exchangeResponse.baseCode,
             targetCode = exchangeResponse.targetCode,
             conversionRate = exchangeResponse.conversionRate,
             conversionResult = exchangeResponse.conversionResult,
         )
-    }
 }

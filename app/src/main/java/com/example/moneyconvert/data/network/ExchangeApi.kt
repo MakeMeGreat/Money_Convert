@@ -1,6 +1,6 @@
 package com.example.moneyconvert.data.network
 
-import com.example.moneyconvert.data.Constant.Companion.API_KEY
+import com.example.moneyconvert.util.Constant.Companion.API_KEY
 import com.example.moneyconvert.data.model.ExchangeResponse
 import retrofit2.http.GET
 import retrofit2.http.Path

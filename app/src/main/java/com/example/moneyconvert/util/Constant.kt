@@ -1,4 +1,4 @@
-package com.example.moneyconvert.data
+package com.example.moneyconvert.util
 
 class Constant {
     companion object {
