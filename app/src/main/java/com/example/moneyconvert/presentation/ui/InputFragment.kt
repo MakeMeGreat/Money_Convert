@@ -58,7 +58,7 @@ class InputFragment : Fragment() {
                     R.id.fragment_container_view, OutputFragment.newInstance(
                         binding.baseCodeSpinner.selectedItem.toString(),
                         binding.targetCodeSpinner.selectedItem.toString(),
-                        binding.amountOfCurrencyEditText.text.toString().toDouble()
+                        binding.amountOfCurrencyEditText.text.toString().ifEmpty { "0" }.toDouble()
                     )
                 )
                 .addToBackStack(null)
