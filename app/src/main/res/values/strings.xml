@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Money Convert</string>
+    <string name="exchange">exchange</string>
+    <string name="amount">Amount</string>
+    <string name="conversion_result">%1$s %2$s</string>
+
+    <string-array name="base_code_array">
+        <item>USD</item>
+        <item>EUR</item>
+        <item>JPY</item>
+        <item>GBP</item>
+        <item>RUB</item>
+    </string-array>
+
+    <string-array name="target_code_array">
+        <item>EUR</item>
+        <item>USD</item>
+        <item>JPY</item>
+        <item>GBP</item>
+        <item>RUB</item>
+    </string-array>
 </resources>
