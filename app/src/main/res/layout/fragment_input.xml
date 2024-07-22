@@ -18,6 +18,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/amount_of_currency_edit_text"
             android:layout_width="match_parent"
             android:inputType="numberDecimal"
             android:maxLength="13"

@@ -2,8 +2,9 @@ package com.example.moneyconvert.presentation.mapper
 
 import com.example.moneyconvert.domain.model.ExchangeResponseDomainModel
 import com.example.moneyconvert.presentation.model.ExchangeResponseModel
+import javax.inject.Inject
 
-class DomainToPresentationMapper {
+class DomainToPresentationMapper @Inject constructor() {
 
     fun mapToPresentation(domainModel: ExchangeResponseDomainModel) =
         ExchangeResponseModel(

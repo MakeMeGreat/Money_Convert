@@ -5,8 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.Toast
-import android.widget.Toast.LENGTH_SHORT
 import androidx.fragment.app.Fragment
 import com.example.moneyconvert.R
 import com.example.moneyconvert.databinding.FragmentInputBinding
@@ -28,35 +26,19 @@ class InputFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupBaseCadeSpinner()
+        setupBaseCodeSpinner()
         setupTargetCodeSpinner()
         setupExchangeButton()
     }
 
-    private fun setupBaseCadeSpinner() {
+    private fun setupBaseCodeSpinner() {
         val baseSpinnerAdapter = ArrayAdapter.createFromResource(
             requireContext(),
             R.array.base_code_array,
             android.R.layout.simple_spinner_item
         )
         baseSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        /*        binding.baseCodeSpinner.onItemSelectedListener =
-                    object : AdapterView.OnItemSelectedListener {
-                        override fun onItemSelected(
-                            parent: AdapterView<*>,
-                            view: View?,
-                            position: Int,
-                            id: Long
-                        ) {
-                            val selectedItem = parent.getItemAtPosition(position).toString()
-                            Toast.makeText(requireContext(), "Selected: $selectedItem", Toast.LENGTH_SHORT)
-                                .show()
-                        }
-
-                        override fun onNothingSelected(parent: AdapterView<*>) {}
-                    }*/
         binding.baseCodeSpinner.adapter = baseSpinnerAdapter
-
     }
 
     private fun setupTargetCodeSpinner() {
@@ -66,30 +48,21 @@ class InputFragment : Fragment() {
             android.R.layout.simple_spinner_item
         )
         targetSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        /*        binding.targetCodeSpinner.onItemSelectedListener =
-                    object : AdapterView.OnItemSelectedListener {
-                        override fun onItemSelected(
-                            parent: AdapterView<*>,
-                            view: View?,
-                            position: Int,
-                            id: Long
-                        ) {
-                            val selectedItem = parent.getItemAtPosition(position).toString()
-                            Toast.makeText(requireContext(), "Selected: $selectedItem", Toast.LENGTH_SHORT)
-                                .show()
-                        }
-
-                        override fun onNothingSelected(parent: AdapterView<*>) {}
-                    }*/
         binding.targetCodeSpinner.adapter = targetSpinnerAdapter
     }
 
     private fun setupExchangeButton() {
         binding.exchangeButton.setOnClickListener {
-            val baseCode = binding.baseCodeSpinner.selectedItem
-            val targetCode = binding.targetCodeSpinner.selectedItem
-
-            Toast.makeText(requireContext(), "$baseCode  $targetCode", LENGTH_SHORT).show()
+            parentFragmentManager.beginTransaction()
+                .replace(
+                    R.id.fragment_container_view, OutputFragment.newInstance(
+                        binding.baseCodeSpinner.selectedItem.toString(),
+                        binding.targetCodeSpinner.selectedItem.toString(),
+                        binding.amountOfCurrencyEditText.text.toString().toDouble()
+                    )
+                )
+                .addToBackStack(null)
+                .commit()
         }
     }
 }
